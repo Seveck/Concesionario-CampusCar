@@ -94,19 +94,3 @@ Historial de revisiones y reparaciones mecánicas de los vehículos.
 | `vehiculoID` | `INTEGER` | `FOREIGN KEY` | Vehículo atendido |
 | `clienteID` | `INTEGER` | `FOREIGN KEY, NULLABLE` | Cliente solicitante (Opcional) |
 
----
-
-## 🔗 Relaciones y Cardinalidades
-
-* **`Clientes` 1:N `Ventas`**
-  Un cliente puede realizar múltiples compras, pero cada factura pertenece a un solo cliente.
-* **`Vendedores` 1:N `Ventas`**
-  Un vendedor puede concretar múltiples ventas, pero cada venta es asignada a un solo vendedor.
-* **`Ventas` 1:N `detalle_ventas`**
-  Una factura de venta engloba uno o más registros dentro del detalle comercial.
-* **`Vehiculos` 1:1 `detalle_ventas`**
-  Debido a que cada vehículo posee un `VIN` único e irrepetible, un vehículo físico solo puede ser asociado a una única venta registrada mediante la restricción `UNIQUE`.
-* **`Vehiculos` 1:N `Mantenimiento`**
-  Un automóvil puede ingresar al taller múltiples veces a lo largo de su ciclo de vida.
-* **`Clientes` 1:N `Mantenimiento`**
-  Un cliente puede llevar sus vehículos a mantenimiento en distintas ocasiones. El campo es opcional (`NULL`) para permitir mantenimientos preventivos a vehículos del inventario antes de ser vendidos.
